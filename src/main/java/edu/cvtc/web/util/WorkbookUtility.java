@@ -23,7 +23,7 @@ import edu.cvtc.web.model.Movie;
  */
 public class WorkbookUtility {
   
-  public static final String INPUT_FILE = "/assets/MovieList.xlsx";
+  public static final String INPUT_FILE = "/assets/MovieBook.xlsx";
   
   public static List<Movie> retrieveMoviesFromWorkbook(final File inputFile) throws InvalidFormatException, IOException{
     
@@ -36,19 +36,19 @@ public class WorkbookUtility {
     
     //NOTES: iterate over each row in the Worksheet from the Workbook
     for(final Row row:sheet) {
-      final Cell title = row.getCell(0);
-      final Cell director = row.getCell(1);
-      final Cell lengthInMinutes = row.getCell(2);
-      final Cell imageURL = row.getCell(3);
-      final Cell playURL = row.getCell(4);
+      final Cell titleCell = row.getCell(0);
+      final Cell directorCell = row.getCell(1);
+      final Cell lengthInMinutesCell = row.getCell(2);
+      final Cell imageURLCell = row.getCell(3);
+      final Cell playURLCell = row.getCell(4);
       
       final Movie movie = new Movie(
-                              title.getStringCellValue().trim(),
-                              director.getStringCellValue().trim(),
-                              (int) lengthInMinutes.getNumericCellValue(),
-                              imageURL.getStringCellValue().trim(),
-                              playURL.getStringCellValue().trim());
-      
+                              titleCell.getStringCellValue().trim(),
+                              directorCell.getStringCellValue().trim(),
+                              (int) lengthInMinutesCell.getNumericCellValue(),
+                              imageURLCell.getStringCellValue().trim(),
+                              playURLCell.getStringCellValue().trim());
+    //(int) lengthInMinutes.getNumericCellValue(),
       //NOTES: add each new Movie to our List of movies
       movies.add(movie);
     }
