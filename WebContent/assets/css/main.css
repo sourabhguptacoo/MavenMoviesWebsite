@@ -1,0 +1,21 @@
+/*
+* Java Web Programming 
+*
+* CVTC
+* Shawn Newhouse
+*
+*/
+.container {width:750px;}
+body {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
