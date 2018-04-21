@@ -2,20 +2,19 @@
 <html>
 <head>
 <title>Java Web Programming: Index</title>
-<meta name="description" content="This is a servlet example that demonstrates
+<meta name="description" content="This is a servlet that demonstrates
     how to use IO to output the contents of an Excel spreadsheet to a web page.">
 <%@ include file="includes/styles.jsp" %>
 </head>
 <body>
 <div class="container">
   <div class="hero-unit">
-    <h1>Welcome to Java Web Programming</h1>
+    <h1>Welcome to my Favorite Movie Site</h1>
   </div>
   <%@ include file="includes/navigation.jsp" %>
   <div class="container">
-    <p>Thank you for making the commitment to be in class everyday as we cover
-    the competencies you will need to demonstrate in order be a Java Web Programmer 
-    in our industry.</p>
+    <p>View all of my favorite movies. Created using Maven. Entries stored 
+    in an external file with the extension of '.xlsx'.</p>
   </div>
   <%@ include file="includes/footer.jsp" %>
 </div>

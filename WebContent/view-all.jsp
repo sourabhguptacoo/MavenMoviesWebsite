@@ -11,7 +11,7 @@
 <body>
 <div class="container">
   <div class="hero-unit">
-    <h1>Class List</h1>
+    <h1>Favorite Movies</h1>
   </div>
   <%@ include file="includes/navigation.jsp" %>
   <div class="conatiner">
@@ -21,12 +21,13 @@
       </c:when>
       <c:otherwise>
         <c:forEach var="movie" items="${movies}">
-          <div class="span4">
+          <div class="span4 movieSpan">
             <h2>${movie.title}</h2>
-            <p>Title: ${movie.title} Director:${movie.director} Length: ${movie.lengthInMinutes} minutes
-            <img class="movieCover" src="${movie.imageURL}">
-            <a href="${movie.playURL}">Play</a></p>
-          </div>
+            <p>Director: ${movie.director}<br>Length: ${movie.lengthInMinutes} minutes<br>
+            <a href="https://www.netflix.com/${movie.playURL}">
+              <img class="movieCover" src="https://images.justwatch.com/${movie.imageURL}">
+            </a></p>
+          </div><br>
         </c:forEach>
       </c:otherwise>
     </c:choose>
