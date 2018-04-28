@@ -12,12 +12,12 @@ import java.io.Serializable;
  * 
  */
 public class Movie implements Serializable {
-
-  private static final long serialVersionUID = -924777929505524179L;
+  
+  private static final long serialVersionUID = -4222907269345551254L;
   
   private String title;
   private String director;
-  private int lengthInMinutes;
+  private Integer lengthInMinutes;
   private String imageURL;
   private String playURL;
   
@@ -25,7 +25,7 @@ public class Movie implements Serializable {
     
   }
   
-  public Movie(String movieName, String directorName, int lengthInMinutes, String imageURL, String playURL) {
+  public Movie(String movieName, String directorName, Integer lengthInMinutes, String imageURL, String playURL) {
     super();
     this.title = movieName;
     this.director = directorName;
@@ -50,11 +50,11 @@ public class Movie implements Serializable {
     this.director = director;
   }
 
-  public int getLengthInMinutes() {
+  public Integer getLengthInMinutes() {
     return lengthInMinutes;
   }
 
-  public void setLengthInMinutes(int lengthInMinutes) {
+  public void setLengthInMinutes(Integer lengthInMinutes) {
     this.lengthInMinutes = lengthInMinutes;
   }
 
