@@ -13,8 +13,8 @@
   </div>
   <%@ include file="includes/navigation.jsp" %>
   <div class="container">
-    <p>View all of my favorite movies. Created using Maven. Entries stored 
-    in an external file with the extension of '.xlsx'.</p>
+    <p>View all of my favorite movies. Created using Maven. Initial entries stored 
+    in an external file with the extension of '.xlsx' which then populates the database.</p>
   </div>
   <%@ include file="includes/footer.jsp" %>
 </div>

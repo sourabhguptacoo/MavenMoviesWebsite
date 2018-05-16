@@ -1,6 +1,5 @@
 package edu.cvtc.web.servlets;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
@@ -11,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-
 import edu.cvtc.web.comparators.*;
+import edu.cvtc.web.dao.MovieDao;
+import edu.cvtc.web.dao.impl.MovieDaoException;
+import edu.cvtc.web.dao.impl.MovieDaoImpl;
 import edu.cvtc.web.model.Movie;
-import edu.cvtc.web.util.WorkbookUtility;
 
 /**
  * Servlet implementation class ViewAllController
@@ -29,16 +28,12 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  
-	  //final String fileName = getServletContext().getRealPath(WorkbookUtility.INPUT_FILE);
-	  //final File inputFile = new File(fileName);
-	  
 	  String target = null;
 	  
 	  try {
 	    
-	    final String fileName = getServletContext().getRealPath(WorkbookUtility.INPUT_FILE);
-	    final File inputFile = new File(fileName);
-      final List<Movie> movies = WorkbookUtility.retrieveMoviesFromWorkbook(inputFile);
+	    final MovieDao movieDao = new MovieDaoImpl();
+	    final List<Movie> movies = movieDao.retrieveMovies();
       
       final String sortType = request.getParameter("sortType");
       
@@ -50,25 +45,26 @@ public class Controller extends HttpServlet {
       
       target = "view-all.jsp";
       
-    } catch (InvalidFormatException e) {
+    } catch (MovieDaoException e) {
       e.printStackTrace();
-      throw new IOException("The workbook file has an invalid format.");
+      request.setAttribute("message", e.getMessage());
+      target = "error.jsp";
     }
 	  
 	  request.getRequestDispatcher(target).forward(request, response);
 	  
 	}
 	
-	private void sortPeople(final List<Movie> people, final String sortType) {
+	private void sortPeople(final List<Movie> movies, final String sortType) {
     switch (sortType) {
     case "director":
-      Collections.sort(people, new DirectorComparator());
+      Collections.sort(movies, new DirectorComparator());
       break;
     case "playTime":
-      Collections.sort(people, new LengthInMinutesComparator());
+      Collections.sort(movies, new LengthInMinutesComparator());
       break;
     case "title":
-      Collections.sort(people, new TitleComparator());
+      Collections.sort(movies, new TitleComparator());
       break;
     default:
       break;

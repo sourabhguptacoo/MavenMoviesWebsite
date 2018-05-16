@@ -26,6 +26,19 @@ p {
     font-size: 20px;
 }
 
+.warning {
+  color: red;
+  font-size: 0.68em;
+  margin-top: 0.8em;
+}
+
+.center {
+  padding-left: auto;
+  padding-right: auto;
+  text-align: center;
+  margin: auto;
+}
+
 .movieCover {
   height: 392px;
   width: 276px;

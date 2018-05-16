@@ -24,8 +24,8 @@
           <div class="span4 movieSpan">
             <h2>${movie.title}</h2>
             <p>Director: ${movie.director}<br>Length: ${movie.lengthInMinutes} minutes<br>
-            <a href="https://www.netflix.com/${movie.playURL}">
-              <img class="movieCover" src="https://images.justwatch.com/${movie.imageURL}">
+            <a href="${movie.playURL}">
+              <img class="movieCover" src="${movie.imageURL}">
             </a></p>
           </div><br>
         </c:forEach>

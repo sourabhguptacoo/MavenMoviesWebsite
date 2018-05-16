@@ -21,9 +21,15 @@
             <a class="dropdown-item" href="ViewAll?sortType=playTime">by Play Time</a>
           </div>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="populateDatabase.jsp">Populate Database</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="addMovie.jsp">Add Movie</a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" action="Search" method="post">
-        <input class="form-control mr-sm-2" type="search" placeholder="Movie Title" aria-label="Movie Title" name="title">
+        <input class="form-control mr-sm-2" type="search" placeholder="Movie Director or Title" aria-label="Movie Director or Title" name="query">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" value="Search">Search</button>
       </form>
     </div>
