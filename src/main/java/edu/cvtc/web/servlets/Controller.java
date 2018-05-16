@@ -38,7 +38,7 @@ public class Controller extends HttpServlet {
       final String sortType = request.getParameter("sortType");
       
       if (sortType != null) {
-        sortPeople(movies, sortType);
+        sortMovies(movies, sortType);
       }
       
       request.setAttribute("movies", movies);
@@ -55,7 +55,7 @@ public class Controller extends HttpServlet {
 	  
 	}
 	
-	private void sortPeople(final List<Movie> movies, final String sortType) {
+	private void sortMovies(final List<Movie> movies, final String sortType) {
     switch (sortType) {
     case "director":
       Collections.sort(movies, new DirectorComparator());
